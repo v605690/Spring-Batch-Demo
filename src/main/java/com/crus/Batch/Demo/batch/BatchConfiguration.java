@@ -80,6 +80,9 @@ public class BatchConfiguration {
                 .reader(repositoryReader)
                 .processor(processor)
                 .writer(writer)
+                .faultTolerant()
+                .skipLimit(10)
+                .skip(NoSuchEntityException.class)
                 .build();
     }
 
